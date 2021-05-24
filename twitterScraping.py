@@ -149,7 +149,7 @@ def keyword_func():
     tweet_count = 1                                                                 #show no. of tweet received, max20
     no_HT = 1                                                                       #count no. of keyword
     #Ask for keyword
-    print('You are searching Latest 20 Tweets with Keyword !')
+    print('You are searching Latest 200 Tweets with Keyword !')
     keyword = input('Please enter a keyword: ')
     while len(keyword)< 500:                                                     #check search query< limit, then add more keywords
         two_keyword = input('Search tweet with more keyword?(Y/N)')
@@ -162,10 +162,10 @@ def keyword_func():
             break
         else: print('Invalid Input!')
     else: return print("Over keyword limit!")
-    # Get 30 tweets
-    for tweet in tw.Cursor(api.search, q=keyword, lang='en').items(30):
+    # Get 200 tweets
+    for tweet in tw.Cursor(api.search, q=keyword, lang='en').items(200):
         tweets_list.append(tweet)
-    # Put tweet into list then into dataframe for 30 times
+    # Put tweet into list then into dataframe for 200 times
     for tweet in tweets_list:
         screename = tweet.user.screen_name
         tweet_id = tweet.id
